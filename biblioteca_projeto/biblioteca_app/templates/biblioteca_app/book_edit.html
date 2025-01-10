@@ -1,0 +1,23 @@
+{% extends 'biblioteca_app/base.html' %}
+
+{% block content %}
+    <h2>{% if form.instance.pk %}Editar Livro{% else %}Novo Livro{% endif %}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn">Salvar</button>
+        <a href="{% url 'book_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
+
+

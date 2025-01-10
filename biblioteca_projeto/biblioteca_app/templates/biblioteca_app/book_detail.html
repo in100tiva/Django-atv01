@@ -1,0 +1,16 @@
+{% extends 'biblioteca_app/base.html' %}
+
+{% block content %}
+    <div class="book-detail">
+        <h2>{{ book.title }}</h2>
+        <p><strong>Autor:</strong> {{ book.author }}</p>
+        <p><strong>Data de Publicação:</strong> {{ book.publication_date }}</p>
+        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+        <div class="book-actions">
+            <a href="{% url 'book_edit' pk=book.pk %}" class="btn">Editar</a>
+            <a href="{% url 'book_list' %}" class="btn btn-secondary">Voltar para a Lista</a>
+        </div>
+    </div>
+{% endblock %}
+
+

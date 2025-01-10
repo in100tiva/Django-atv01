@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Moderna</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="{% url 'book_list' %}">Biblioteca Moderna</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'book_list' %}">Livros</a></li>
+                    <li><a href="{% url 'book_new' %}">Adicionar Livro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Biblioteca Moderna. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

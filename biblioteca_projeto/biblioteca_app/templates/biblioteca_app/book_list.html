@@ -1,0 +1,22 @@
+{% extends 'biblioteca_app/base.html' %}
+
+{% block content %}
+    <h2>Livros</h2>
+    <a href="{% url 'book_new' %}" class="btn">Adicionar Livro</a>
+    
+    {% if books %}
+        <div class="book-list">
+            {% for book in books %}
+                <div class="book-card">
+                    <h3><a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }}</a></h3>
+                    <p>{{ book.author }}</p>
+                    <p>ISBN: {{ book.isbn }}</p>
+                    <a href="{% url 'book_detail' pk=book.pk %}" class="btn btn-secondary">Ver Detalhes</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Nenhum livro cadastrado ainda.</p>
+    {% endif %}
+{% endblock %}
+
