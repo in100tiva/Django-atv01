@@ -30,3 +30,4 @@ def book_edit(request, pk):
     else:
         form = BookForm(instance=book)
     return render(request, 'biblioteca_app/book_edit.html', {'form': form})
+

@@ -6,3 +6,4 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'publication_date', 'isbn')
     search_fields = ('title', 'author', 'isbn')
     list_filter = ('publication_date',)
+
